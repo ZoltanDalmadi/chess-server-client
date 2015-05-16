@@ -124,8 +124,8 @@ int parse_command(char *command, int *from_row, int *from_col, int *to_row,
 
 int receive_command(PLAYER *player)
 {
-  char command[255];
-  ssize_t rcv_size = recv(player->socket, command, 255, 0);
+  char command[15];
+  ssize_t rcv_size = recv(player->socket, command, 15, 0);
 
   if (rcv_size < 0)
   {
@@ -133,7 +133,7 @@ int receive_command(PLAYER *player)
     exit(5);
   }
 
-  if (!strcmp(command, "I_GIVE_UP"))
+  if (!strcmp(command, "I_GIVE_UP\n`"))
   {
     player->lost = 1;
     return 1;
