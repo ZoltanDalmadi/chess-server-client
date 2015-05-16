@@ -128,7 +128,7 @@ public class ChessClientApp extends Application {
     for (int i = 0; i < 8; i++) {
       for (int j = 0; j < 8; j++) {
         chessCells[i][j] = new ChessCell(sprite);
-        chessCells[i][j].setCellColor(i % 2 != j % 2);
+        chessCells[i][j].setCellColor(i % 2 == j % 2);
         chessCells[i][j].row = i;
         chessCells[i][j].col = (char) (j + 65);
         chessCells[i][j].setOnMouseClicked(cellHandler);
